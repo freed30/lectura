@@ -4,9 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "env": {
-      "NIXPACKS_DOCUMENT_ROOT": "/public",
-      "DOCUMENT_ROOT": "public"
-    }
+    "startCommand": "sed -i 's|root /app;|root /app/public;|g' /etc/nginx/nginx.conf && nginx -g 'daemon off;' & php-fpm"
   }
 }
